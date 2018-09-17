@@ -9,6 +9,13 @@ class App extends Component {
       studentList: []
     }
   }
+  
+  componentDidMount() {
+    return fetch("https://g95-hometown.herokuapp.com/")
+      .then(response => response.json())
+      .then(responseJSON => this.setState({studentList: responseJSON.data}))
+      .then(something => {console.log(this.state)})
+  }
   render() {
     return(
       <div>
